@@ -38,17 +38,17 @@ class ExtendedQuotaSetsController(wsgi.Controller):
 
     @wsgi.extends
     def show(self, req, id, resp_obj):
-        # Attach our slave template to the response object
+        # Attach our subordinate template to the response object
         resp_obj.attach(xml=ExtendedQuotaSetsTemplate())
 
     @wsgi.extends
     def update(self, req, id, body, resp_obj):
-        # Attach our slave template to the response object
+        # Attach our subordinate template to the response object
         resp_obj.attach(xml=ExtendedQuotaSetsTemplate())
 
     @wsgi.extends
     def defaults(self, req, id, resp_obj):
-        # Attach our slave template to the response object
+        # Attach our subordinate template to the response object
         resp_obj.attach(xml=ExtendedQuotaSetsTemplate())
 
 
@@ -59,19 +59,19 @@ class ExtendedQuotaSetsTemplate(xmlutil.TemplateBuilder):
         elem.text = 'server_groups'
         elem = xmlutil.SubTemplateElement(root, 'server_group_members')
         elem.text = 'server_group_members'
-        return xmlutil.SlaveTemplate(root, 1)
+        return xmlutil.SubordinateTemplate(root, 1)
 
 
 class ExtendedQuotaClassSetsController(wsgi.Controller):
 
     @wsgi.extends
     def show(self, req, id, resp_obj):
-        # Attach our slave template to the response object
+        # Attach our subordinate template to the response object
         resp_obj.attach(xml=ExtendedQuotaClassSetsTemplate())
 
     @wsgi.extends
     def update(self, req, id, body, resp_obj):
-        # Attach our slave template to the response object
+        # Attach our subordinate template to the response object
         resp_obj.attach(xml=ExtendedQuotaClassSetsTemplate())
 
 
@@ -83,7 +83,7 @@ class ExtendedQuotaClassSetsTemplate(xmlutil.TemplateBuilder):
         elem.text = 'server_groups'
         elem = xmlutil.SubTemplateElement(root, 'server_group_members')
         elem.text = 'server_group_members'
-        return xmlutil.SlaveTemplate(root, 1)
+        return xmlutil.SubordinateTemplate(root, 1)
 
 
 class Server_group_quotas(extensions.ExtensionDescriptor):
